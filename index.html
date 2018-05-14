@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>Snake</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="snakeContainer" class="snakeContainer">
+    </div>
+    <script src="snakeBoard.js"></script>
+    <script src="snake.js"></script>
+    <script>
+        let container = document.getElementById("snakeContainer");
+        let boardDimension = 350, id = 1;
+        let snakeBoard = new SnakeBoard(container, id, boardDimension);			
+    </script>
+</body>
+
+</html>

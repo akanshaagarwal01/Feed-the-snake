@@ -1,0 +1,37 @@
+.board {
+	display: inline-block;
+	background-color : green;
+	border : 1px solid black;
+    opacity : 0.2;
+	position : relative;	
+}
+
+.playBtn {
+	width : 0px;
+	height : 0px;
+	border-left : 30px solid #ffffff;
+	border-top : 15px solid transparent;
+	border-bottom : 15px solid transparent;
+	position : absolute;
+	top : 160px;
+    left : 160px;
+    cursor : pointer;
+}
+
+.snake {
+    display : flex;
+    flex-wrap: nowrap;
+	background-color : black;
+	position : absolute;
+	transition: left .1s, top .3s, ease;
+}
+
+.snakeHead, .toAdd {
+    background-color : black;
+}
+
+.food {
+	display : inline-block;
+	background-color : red;
+	position : absolute;
+}
