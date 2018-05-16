@@ -1,18 +1,18 @@
 (function () {
 
-    function SnakeBoard(container, id, boardDimension) {
+    function SnakeBoard(container, id, boardDimension, speed) {
         this._container = container;
         this._id = id || 1;
         this._boardDimension = boardDimension || 350;
+		this._speed = +speed;
         SnakeBoard.prototype.initializeBoard.call(this);
     }
 
     SnakeBoard.prototype.initializeBoard = function () {
         this.makeBoard();
         this.makePlayBtn();
-        this.snakeDimension = this._boardDimension / 50;
-        this.snake = new Snake(id, this._boardDimension, this.snakeDimension);
-        this.board.append(this.snake.snake);
+        this.snakeDimension = this._boardDimension / 40;
+        this.snake = new Snake(id, this.board, this._boardDimension, this.snakeDimension);
         this.snake.generateFood();
         this.board.append(this.snake.food);
         this.playBtn.addEventListener("click", this.play.bind(this));
@@ -37,7 +37,7 @@
     SnakeBoard.prototype.play = function () {
         this.board.style.opacity = 1;
         this.playBtn.style.display = "none";
-        let timer_Id = setInterval(this.snake.move.bind(this.snake), 300);
+        let timer_Id = setInterval(this.snake.move.bind(this.snake), this._speed);
         this.snake.timer_Id = timer_Id;
         document.addEventListener("keydown", this.snake.changeDirection.bind(this.snake));
     };
